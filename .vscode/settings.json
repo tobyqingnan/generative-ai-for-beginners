@@ -1,0 +1,6 @@
+{
+  "python.analysis.extraPaths": [
+    "./09-building-image-applications/python/.venv-local/lib/python3.14/site-packages"
+  ],
+  "python.terminal.useEnvFile": true
+}

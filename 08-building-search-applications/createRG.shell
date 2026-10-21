@@ -1,0 +1,21 @@
+az group create --name semantic-image-gen --location australiaeast
+
+az cognitiveservices account create --name semantic-image-openai --resource-group semantic-image-gen \
+    --location eastus --kind OpenAI --sku s0
+
+
+
+az cognitiveservices account show --name semantic-image-openai \
+   --resource-group  semantic-image-gen | jq -r .properties.endpoint
+az cognitiveservices account keys list --name semantic-image-openai \
+   --resource-group semantic-image-gen | jq -r .key1
+
+
+az cognitiveservices account deployment create \
+    --name semantic-image-openai \
+    --resource-group  semantic-image-gen \
+    --deployment-name gpt-image-2 \
+    --model-name gpt-image-2 \
+    --model-version "2"  \
+    --model-format OpenAI \
+    --sku-capacity 100 --sku-name "Standard"

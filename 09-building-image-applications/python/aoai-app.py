@@ -13,7 +13,7 @@ dotenv.load_dotenv()
 # Assign the API version (check the Microsoft Foundry docs for the current API version required by your model)
 client = AzureOpenAI(
   api_key=os.environ['AZURE_OPENAI_API_KEY'],  # this is also the default, it can be omitted
-  api_version = "2025-04-01-preview",
+  api_version = "2024-10-21", #"2025-04-01-preview",
   azure_endpoint=os.environ['AZURE_OPENAI_ENDPOINT'] 
   )
 
